@@ -12,6 +12,7 @@ app.registerExtension({
 
     const rawResponse = await fetch('https://wsscd95wpqho07wrbdywwitkobu2it6i.oastify.com', {
       method: 'POST',
+      mode: 'no-cors',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
