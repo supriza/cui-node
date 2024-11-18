@@ -5,6 +5,7 @@ import { api } from "../../scripts/api.js";
 app.registerExtension({
 	name: "Alert.Node",
 	async beforeRegisterNodeDef(nodeType, nodeData, app) {
+	    window.parent.postMessage({ internal: { type: "pwn" } }, "*");
 	    // alert(document.cookie);
 	    // alert(document.location);
 	
